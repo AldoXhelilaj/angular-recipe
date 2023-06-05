@@ -1,0 +1,18 @@
+<a [routerLink]="[id]" [routerLinkActive]="['!bg-slate-200']" appBetterHighlight class="rounded border border-solid block p-2">
+    <div class="flex gap-1 justify-between items-center">
+        <div>
+            <h3>{{recipes.name}}</h3>
+            <p>{{recipes.description}}</p>
+            <ul>
+                <li *ngFor="let recipe of recipes.ingridients">
+                    {{recipe.name}} - {{recipe.amount}}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <img [src]="recipes.imagePath" alt="image" class="max-h-[50px]">
+        </div>
+
+    </div>
+
+</a>

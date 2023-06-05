@@ -1,0 +1,27 @@
+<div>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+        <div class="grid grid-cols-[7fr_5fr] gap-3">
+            <div class="form-group">
+                {{editMode}}
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name" class="form-control" #inputName [(ngModel)]="defaultName"
+                    required #name="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" name="amount" id="amount" class="form-control" #inputAmount ngModel required
+                    #amount="ngModel" pattern="^[1-9]+[0-9]*$">
+            </div>
+            <p *ngIf="!name.valid && name.touched">Please enter name !</p>
+            <p *ngIf="!amount.valid && amount.touched">Please enter amount !</p>
+
+        </div>
+        <div class="flex gap-1">
+            <button [disabled]="!f.valid" type="submit" class="btn btn-success">{{editMode ? 'Update' : 'Add'}}</button>
+            <button type="button" class="btn btn-danger" [disabled]="!editMode"  (click)="onDelete()">Delete</button>
+            <button type="button" class="btn btn-primary" (click)="onClear()">Clear</button>
+        </div>
+
+    </form>
+</div>

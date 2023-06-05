@@ -1,0 +1,20 @@
+<hr class="my-3">
+<h4 *ngIf="cleared">Cleared !</h4>
+<div class="p-4 grid grid-cols-5">
+    <div>
+
+        <app-shopping-edit>
+
+        </app-shopping-edit>
+
+
+        <ul class="border-collapse mt-4">
+            <li *ngFor="let ingredient of ingridients; let i = index;"  class="border border-solid border-slate-300 p-1 border-collapse">
+                <a class="cursor-pointer block" (click)="onEditItem(i)">
+                    {{ingredient.name}} ({{ingredient.amount}})
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</div>

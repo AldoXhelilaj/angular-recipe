@@ -1,0 +1,15 @@
+<div class="">
+    <button class="btn btn-success" (click)="onEditRecipe()">
+        New Recipe
+    </button>
+    <div>
+
+        <hr class="m-3">
+
+
+        <app-recipe-item *ngFor="let recipe of recipes; let id= index" [recipes]="recipe" [id]="id"
+            async></app-recipe-item>
+
+    </div>
+
+</div>

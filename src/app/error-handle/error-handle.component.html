@@ -1,0 +1,4 @@
+<div *ngIf="errorMessage" class="error">
+    <button (click)="removeError()" class="error-remove">x</button>
+    <p class="error__message">{{ errorMessage }}</p>
+</div>

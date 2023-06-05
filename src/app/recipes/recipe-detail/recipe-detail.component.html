@@ -1,0 +1,31 @@
+<div>
+    <img [src]="recipe.imagePath" alt="">
+    <h2>{{recipe.name}}</h2>
+    <div>
+        <div class="dropdown relative">
+            <a class="dropdown-toggle btn btn-primary" appDropdown>Manage <span><fa-icon [icon]="faCaretDown">
+                    </fa-icon></span></a>
+            <ul class="dropdown-menu absolute bg-white p-2">
+                <li class="cursor-pointer">
+                    <a (click)="onAddedIngrindients($event)">
+                        To Shoping List</a>
+                </li>
+                <li>
+                    <a (click)="onEditComponent()" class="cursor-pointer"> Edit Recipe</a>
+                </li>
+                <li>
+                    <a (click)="onDeleteRecipe()" class="cursor-pointer"> Delete Recipe</a>
+                </li>
+            </ul>
+
+            <div class="">
+                <ul>
+                    <li *ngFor="let ingredient of recipe.ingridients">
+                        {{ingredient.name}} - {{ingredient.amount}}
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

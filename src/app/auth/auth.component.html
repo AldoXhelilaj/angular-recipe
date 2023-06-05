@@ -1,0 +1,26 @@
+<div class="px-4">
+    <form #authForm="ngForm" (submit)="onSubmit(authForm)">
+        <div class="form-group">
+            <label for="email" class=""></label>
+            <input type="email" required ngModel #email name="email" id="email" class="form-control"
+                placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="password" class=""></label>
+            <input type="password" required ngModel #password minlength="6" name="password" id="password"
+                class="form-control" placeholder="password">
+        </div>
+        <div class="flex gap-2">
+            <button class="btn btn-primary" [disabled]="!authForm.valid"> {{!isLoginMode ? 'Sign up' :
+                'Login'}}</button>
+            <button class="btn btn-danger" (click)="switchModes()">Switch to {{ isLoginMode ? 'Sign up' :
+                'Login'}}</button>
+
+        </div>
+        <div>
+        </div>
+    </form>
+</div>
+
+<app-spinner [isLoading]="isLoading"></app-spinner>
+<app-error-handle [errorMessage]="errorMessage" (dismissError)="removeError()"></app-error-handle>

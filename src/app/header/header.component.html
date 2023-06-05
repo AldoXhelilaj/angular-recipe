@@ -1,0 +1,25 @@
+<header class="p-4 w-full">
+    <nav class=" flex justify-between items-center">
+        <div class="flex gap-2">
+            <a routerLink="/">RECIPE Book</a>
+            <a routerLinkActive="text-blue-500" *ngIf="isAuthenticated" routerLink="/recipes" [ngClass]="">Recipes</a>
+            <a routerLinkActive="text-blue-500" routerLink="/shopping-list">Shoping list</a>
+            <a routerLinkActive="text-blue-500" *ngIf="!isAuthenticated" routerLink="/auth">Auth</a>
+
+        </div>
+        <div class="flex justify-between items-center">
+            <ul class="relative flex justify-between items-center gap-2">
+                <li class="cursor-pointer" *ngIf="isAuthenticated" (click)=" onLogout()">Logout</li>
+                <li class="dropdown" *ngIf="isAuthenticated">
+                    <a class="dropdown-toggle" appDropdown>Manage <span><fa-icon [icon]="faCaretDown">
+                            </fa-icon></span></a>
+                    <ul class="dropdown-menu absolute">
+                        <li class="cursor-pointer"><a (click)="onSaveRecipe()">Save Data</a></li>
+                        <li class="cursor-pointer"><a (click)="onFetchRecipe()">Fetch Data</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
